@@ -15,12 +15,12 @@ btn.addEventListener('click',function(){
         list.appendChild(li);
         let span = document.createElement('span');
         span.innerHTML = "\u00d7";
-        let d = document.createElement('p');
-        d.innerHTML = new Date(date.value);
-       let  stdate = new Date(date.value);
-        d.classList.add('date');
-        li.appendChild(d);
         li.appendChild(span);
+        let x = new Date();
+
+        let p = document.createElement('p');
+        p.innerHTML = ` create Time :${date.value} on ${x.getHours()}:${x.getMinutes()} `;
+        li.appendChild(p);
      }
      input.value='';
 
@@ -30,13 +30,17 @@ btn.addEventListener('click',function(){
 list.addEventListener('click' , function(e){
     if(e.target.tagName === 'LI'){
 
-        let date = new Date();
+        let x = new Date();
         let c1 = document.createElement('p');
         let  s = document.createElement('span');
         s.innerHTML = "&#10003;";
         c1.innerHTML = e.srcElement.childNodes[0].data ;
         c1.appendChild(s);
         clist.appendChild(c1);
+        let  s1 = document.createElement('span');
+        s1.innerHTML = ` completed Time :${date.value} on ${x.getHours()}:${x.getMinutes()} `;
+        c1.appendChild(s1);
+
         e.srcElement.remove();
 
     }
